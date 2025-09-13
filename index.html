@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narava Studio - Creative Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3c2f37;  
+            --accent-color: #cc5439;
+            --secondary-bg-color: #f8f9fa;
+            --text-color: #3c2f37;
+            --bg-color: #fff;
+            --font-family: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.contact-btn {
+    background-color: #64515d;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.contact-btn:hover {
+    background-color:  #3c2f37;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+            min-height: 100vh;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin-right: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            text-align: right;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        /* Services Slider */
+        .services-slider {
+            background: var(--accent-color);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-content {
+            display: inline-block;
+            animation: slide 20s linear infinite;
+        }
+
+        .slider-content span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 2.5rem;
+        }
+
+        .separator {
+            opacity: 0.6;
+        }
+
+        /* Dividers */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .wave-divider.primary .shape-fill {
+            fill: var(--primary-color);
+        }
+
+        /* Sections */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header.left-aligned {
+            text-align: left;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-weight: 500;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin: 0.5rem 0;
+        }
+        
+        .section-header.left-aligned h2 {
+            font-size: 3rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6rem 0;
+        }
+
+        .about-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .about .section-header {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .about .section-label, .about h2 {
+            color: white;
+        }
+
+        .about h2 .highlight {
+            color: var(--accent-color);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--secondary-bg-color);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .plan-type {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+        
+        .features-list li .fas {
+            color: var(--accent-color);
+        }
+
+        .pricing-btn {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: block;
+            text-align: center;
+        }
+        
+        .pricing-card.featured .pricing-btn {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Testimonials Section */
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .rating {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .rating span {
+            color: var(--text-color);
+            margin-left: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .client-info h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .client-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--secondary-bg-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .contact-info .section-header {
+            text-align: left;
+            margin-bottom: 0;
+        }
+        
+        .contact-info p {
+            margin-top: 1rem;
+            max-width: 500px;
+        }
+
+        .contact-details {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-details .icon {
+            width: 45px;
+            height: 45px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fdfdfd;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateX(5px);
+        }
+        
+/* Update Root Variables for matching colors */
+:root {
+    --primary-color: #3c2f37; /* Dark Green */
+    --accent-color: #cc5439;  /* Orange */
+    --footer-bg: #FDFDFD;    /* Light background for main footer */
+    --footer-text-color: #6C757D; /* Grayish text */
+    --footer-heading-color: #343A40; /* Darker heading */
+    --footer-bottom-bg: #3c2f37; /* Dark green for copyright section */
+    --footer-bottom-text-color: #E0E0E0; /* Light gray for copyright text */
+    --font-family: 'Inter', sans-serif;
+}
+
+.footer {
+    background: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding: 4rem 0 0; /* Adjust padding for bottom section */
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; /* Adjusted columns based on image */
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--footer-heading-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col a {
+    color: var(--footer-text-color);
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: var(--accent-color);
+}
+
+.footer-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-brand-logo img {
+    height: 35px; /* Adjust logo size */
+}
+
+.footer-brand-logo h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--footer-heading-color);
+    margin: 0;
+}
+
+.brand-col p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem; /* Smaller gap for social icons */
+}
+
+.social-links .social-icon {
+    color: var(--primary-color); /* Dark green icon color */
+    background: var(--accent-color); /* Orange background for social icons */
+    font-size: 1rem;
+    width: 38px; /* Smaller size for icons */
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.social-links .social-icon:hover {
+    background-color: var(--primary-color); /* Dark green on hover */
+    color: white; /* White icon on hover */
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    display: flex;
+    background: white;
+    border: 1px solid #E0E0E0; /* Light border */
+    border-radius: 10px; /* Slightly less rounded */
+    padding: 0.3rem; /* Smaller padding */
+    height: 45px; /* Fixed height for the form */
+    align-items: center;
+}
+
+.newsletter-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    color: var(--footer-heading-color);
+}
+
+.newsletter-form input::placeholder {
+    color: #A0A0A0; /* Lighter placeholder color */
+}
+
+.newsletter-form input:focus {
+    outline: none;
+}
+
+.newsletter-form .submit-btn {
+    background: var(--accent-color); /* Orange button */
+    color: var(--primary-color); /* Dark green icon */
+    border: none;
+    border-radius: 8px; /* Less rounded button */
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.newsletter-form .submit-btn i {
+    font-size: 0.8rem; /* Smaller arrow icon */
+}
+
+.newsletter-form .submit-btn:hover {
+    background: #cc5439; /* Slightly darker orange on hover */
+}
+
+.footer-bottom {
+    background: var(--footer-bottom-bg); /* Dark green background */
+    color: var(--footer-bottom-text-color); /* Light gray text */
+    padding: 1.5rem 0; /* Smaller padding */
+    text-align: center;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.footer-bottom .highlight {
+    color: var(--accent-color); /* Orange highlight for brand name */
+    font-weight: 600;
+}
+
+.footer-links a {
+    color: var(--footer-bottom-text-color);
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links .separator {
+    margin: 0 0.8rem; /* Adjust separator spacing */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .brand-col {
+        grid-column: 1 / -1; /* Brand column spans full width */
+        text-align: center; /* Center content */
+    }
+
+    .footer-brand-logo {
+        justify-content: center; /* Center logo */
+    }
+
+    .social-links {
+        justify-content: center; /* Center social icons */
+    }
+    
+    .footer-bottom .container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .footer-col {
+        text-align: center; /* Center all column content */
+    }
+
+    .newsletter-form {
+        max-width: 300px; /* Limit newsletter form width */
+        margin: 0 auto; /* Center newsletter form */
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Narava Studio Logo">
+            <span>Narava Studio</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <a href="#contact" class="contact-btn">Contact Me</a>
+    </div>
+</nav>
+
+    <section id="hero" class="hero container">
+        <div class="hero-content">
+            <div class="badge">Hello There!</div>
+            <h1>Your <span class="highlight">brand’s story</span>,<br>Our creative Playground.</h1>
+            <p>lahir dari keyakinan bahwa setiap brand memiliki cerita yang layak untuk didengar. Kami merangkai cerita itu menjadi suara otentik yang mampu terhubung, menginspirasi, dan relevan di era digital.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Portfolio <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-outline">Hire Me</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="maskotnya.png" alt="Narava Studio Mascot">
+        </div>
+    </section>
+
+    <div class="services-slider">
+        <div class="slider-content">
+            <span>Social Media Management</span>
+            <span class="separator">✱</span>
+            <span>Content Creation</span>
+            <span class="separator">✱</span>
+            <span>Copywriting & Storytelling</span>
+            <span class="separator">✱</span>
+            <span>Digital Branding</span>
+            <span class="separator">✱</span>
+            <span>Social Media Management</span>
+            <span class="separator">✱</span>
+            <span>Content Creation</span>
+            <span class="separator">✱</span>
+            <span>Copywriting & Storytelling</span>
+            <span class="separator">✱</span>
+            <span>Digital Branding</span>
+        </div>
+    </div>
+    
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Services</span>
+                <h2>Services I Provide</h2>
+                <p>From captivating social media strategies to compelling copywriting, we offer a full suite of services to bring your brand's unique story to life.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Social Media Management</h3>
+                    <p>Mengelola Instagram, TikTok, dll. - Membuat jadwal posting, interaksi dengan audiens, menjaga konsistensi brand.</p>
+                    <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Content Creation</h3>
+                    <p>Foto produk estetik - Video pendek (TikTok dan Reels) - Desain grafis (feed, poster digital, stor template).</p>
+                    <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>Copywriting & Storytelling</h3>
+                    <p>Membuat caption menarik, storytelling produk, atau script video pendek - Bahasa disesuaikan dengan target audiens.</p>
+                    <a href="#" class="learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-content-wrapper">
+                <div class="about-image">
+                    <img src="logo.png" alt="About Narava Studio">
+                </div>
+                <div class="about-content">
+                    <div class="section-header">
+                        <span class="section-label">About</span>
+                        <h2>Narava<span class="highlight">Studio</span>?</h2>
+                    </div>
+                    <p>Narava Studio adalah creative boutique agency yang lahir dari keyakinan bahwa setiap brand memiliki cerita unik yang layak untuk disuarakan. Kami membantu brand, startup, hingga UMKM mengubah narasi mereka menjadi identitas kreatif yang hidup melalui storytelling, inovasi digital, dan desain yang relevan. Bagi kami, setiap strategi, konten, dan pengalaman digital bukan sekadar promosi, melainkan cara menghadirkan suara otentik yang mampu terhubung lebih dalam dengan audiens di era digital.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>UI/UX Design</h3>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Digital Branding</h3>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Story as a Service</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing" class="pricing-section section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Key Service</span>
+                <h2>Paket<span class="highlight"> Narava Studio</span></h2>
+                <p>Choose the perfect plan to ignite your brand's digital presence and connect with your audience on a deeper level.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-type">Narava Starter <i class="fas fa-arrow-right"></i></div>
+                    <div class="price">Rp. 400.000,00<span> /Month</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i>Storytelling Unik</li>
+                        <li><i class="fas fa-check"></i>Story-as-a-Service</li>
+                        <li><i class="fas fa-check"></i>Social Media Kit</li>
+                        <li><i class="fas fa-check"></i>Basic Brand Identity</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Choose Plan</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="plan-type">Narava Growth <i class="fas fa-arrow-right"></i></div>
+                    <div class="price">Rp. 700.000,00<span> /Month</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i>Story-as-a-Service</li>
+                        <li><i class="fas fa-check"></i>Digital Ritual Design</li>
+                        <li><i class="fas fa-check"></i>Content Strategy & Calendar</li>
+                        <li><i class="fas fa-check"></i>Visual Identity Kit</li>
+                        <li><i class="fas fa-check"></i>Social Media Management</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Choose Plan</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="plan-type">Narava Premium <i class="fas fa-arrow-right"></i></div>
+                    <div class="price">Rp. 850.000,00<span> /Month</span></div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i>Digital Avatar Talent</li>
+                        <li><i class="fas fa-check"></i>Story-as-a-Service</li>
+                        <li><i class="fas fa-check"></i>Full Brand Identity & Guidelines</li>
+                        <li><i class="fas fa-check"></i>Multi-platform Campaign</li>
+                        <li><i class="fas fa-check"></i>Ritual & Experience Design</li>
+                        <li><i class="fas fa-check"></i>Data & Insights Report</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Clients Testimonials</span>
+                <h2>The Impact of My Work: <br><span class="highlight">Client Testimonials</span></h2>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>5.0</span>
+                </div>
+                <p>“Kami sangat terbantu dengan konsep Story-as-a-Service. Konten jadi punya alur dan selalu ditunggu followers. Narava benar-benar ngerti cara bercerita di era digital.”</p>
+                <div class="client-info">
+                    <img src="NIBEL.jpg" alt="Muhammad Rezky">
+                    <div>
+                        <h4>Muhammad Rezky</h4>
+                        <p>Pujaan Hati Liza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <div class="section-header left-aligned">
+                    <span class="section-label">Contact Us</span>
+                    <h2>Let's Talk for<br><span class="highlight">Your Next Projects</span></h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                
+                <ul class="contact-details">
+                    <li>
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        0882020847299
+                    </li>
+                    <li>
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        Naravastudio@gmail.com
+                    </li>
+                    <li>
+                        <div class="icon"><i class="fab fa-skype"></i></div>
+                        example
+                    </li>
+                    <li>
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        Jln. Syamsuddin Tunru No.05
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="contact-form">
+                <h3 class="form-title">Send a Message</h3>
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" placeholder="Ex. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="example@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm Interested in *</label>
+                            <select id="interest" required>
+                                <option value="" disabled selected>Select</option>
+                                <option value="ui-ux">UI/UX Design</option>
+                                <option value="web">Web Design</option>
+                                <option value="app">App Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range (USD) *</label>
+                            <select id="budget" required>
+                                <option value="" disabled selected>Select Range</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000-plus">$10,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <select id="country" required>
+                                <option value="" disabled selected>Select Country</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="ca">Canada</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" placeholder="Enter here.." required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Submit <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Narava Studio Logo">
+                <span>Narava Studio</span>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Narava Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // Services slider animation
+        const sliderContent = document.querySelector('.slider-content');
+        if (sliderContent) {
+            const clone = sliderContent.cloneNode(true);
+            sliderContent.parentElement.appendChild(clone);
+        }
+
+        // Testimonial slider functionality (dummy for now)
+        // This is a placeholder and would require more complex JS for a real slider
+        const prevButton = document.querySelector('.slider-controls .prev');
+        const nextButton = document.querySelector('.slider-controls .next');
+
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                alert('Previous testimonial clicked!');
+            });
+            nextButton.addEventListener('click', () => {
+                alert('Next testimonial clicked!');
+            });
+        }
+        
+        // Active link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-col brand-col">
+            
+            <div class="social-links">
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+0123-456-789">0882020847299</a></li>
+                <li><a href="https://www.example.com">www.Naravastudio.com</a></li>
+                <li><a href="mailto:example@gmail.com">Naravastudio@gmail.com</a></li>
+                <li>Jln. Syamsuddin Tunru No.05</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Get the latest information</h4>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email address">
+                <button type="submit" class="submit-btn" aria-label="Subscribe">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>Copyright © 2024 <span class="highlight">Olivia</span>. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">User Terms & Conditions</a>
+                <span class="separator">|</span>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
